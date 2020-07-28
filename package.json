@@ -6,14 +6,37 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "aos": "^3.0.0-beta.6",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "knex": "^0.21.2",
+    "lightweight-charts": "^2.0.0",
+    "lodash": "^4.17.19",
+    "plotly.js": "^1.54.4",
+    "plotly.js-basic-dist": "^1.54.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-plotly.js": "^2.4.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "semantic-ui-react": "^0.88.2",
+    "sqlite3": "^5.0.0"
   },
+  "homepage": "https://github.com/poojagunturu/dig-deep",
   "scripts": {
-    "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build-front": "react-scripts build",
+    "start-server": "nodemon server/server.js --watch server/*",
+    "start-front": "react-scripts start",
+    "start": "concurrently \"npm run start-server\" \"npm run start-front\" --kill-others --kill-others-on-fail",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -30,5 +53,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "@types/express": "4.17.6",
+    "@types/react": "16.9.34",
+    "@types/react-dom": "16.9.6",
+    "concurrently": "5.1.0",
+    "nodemon": "2.0.3",
+    "react-scripts": "3.4.1",
+    "sqlite3": "4.1.1"
   }
 }
