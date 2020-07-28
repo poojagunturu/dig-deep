@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.js": "/poojagunturu/dig-deep/static/js/main.44e45cc7.chunk.js",
-    "main.js.map": "/poojagunturu/dig-deep/static/js/main.44e45cc7.chunk.js.map",
-    "runtime-main.js": "/poojagunturu/dig-deep/static/js/runtime-main.aa466239.js",
-    "runtime-main.js.map": "/poojagunturu/dig-deep/static/js/runtime-main.aa466239.js.map",
-    "static/css/2.eb43dee1.chunk.css": "/poojagunturu/dig-deep/static/css/2.eb43dee1.chunk.css",
-    "static/js/2.4ce0a525.chunk.js": "/poojagunturu/dig-deep/static/js/2.4ce0a525.chunk.js",
-    "static/js/2.4ce0a525.chunk.js.map": "/poojagunturu/dig-deep/static/js/2.4ce0a525.chunk.js.map",
-    "index.html": "/poojagunturu/dig-deep/index.html",
-    "precache-manifest.032fb3fd20b4a17fb7cd3c87b919f4bc.js": "/poojagunturu/dig-deep/precache-manifest.032fb3fd20b4a17fb7cd3c87b919f4bc.js",
-    "service-worker.js": "/poojagunturu/dig-deep/service-worker.js",
-    "static/css/2.eb43dee1.chunk.css.map": "/poojagunturu/dig-deep/static/css/2.eb43dee1.chunk.css.map",
-    "static/js/2.4ce0a525.chunk.js.LICENSE.txt": "/poojagunturu/dig-deep/static/js/2.4ce0a525.chunk.js.LICENSE.txt"
+    "main.js": "/dig-deep/static/js/main.dda1ab6d.chunk.js",
+    "main.js.map": "/dig-deep/static/js/main.dda1ab6d.chunk.js.map",
+    "runtime-main.js": "/dig-deep/static/js/runtime-main.bcabec10.js",
+    "runtime-main.js.map": "/dig-deep/static/js/runtime-main.bcabec10.js.map",
+    "static/css/2.eb43dee1.chunk.css": "/dig-deep/static/css/2.eb43dee1.chunk.css",
+    "static/js/2.4ce0a525.chunk.js": "/dig-deep/static/js/2.4ce0a525.chunk.js",
+    "static/js/2.4ce0a525.chunk.js.map": "/dig-deep/static/js/2.4ce0a525.chunk.js.map",
+    "index.html": "/dig-deep/index.html",
+    "precache-manifest.984f9992edba5a0df9dd224935f1690a.js": "/dig-deep/precache-manifest.984f9992edba5a0df9dd224935f1690a.js",
+    "service-worker.js": "/dig-deep/service-worker.js",
+    "static/css/2.eb43dee1.chunk.css.map": "/dig-deep/static/css/2.eb43dee1.chunk.css.map",
+    "static/js/2.4ce0a525.chunk.js.LICENSE.txt": "/dig-deep/static/js/2.4ce0a525.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.aa466239.js",
+    "static/js/runtime-main.bcabec10.js",
     "static/css/2.eb43dee1.chunk.css",
     "static/js/2.4ce0a525.chunk.js",
-    "static/js/main.44e45cc7.chunk.js"
+    "static/js/main.dda1ab6d.chunk.js"
   ]
 }
