@@ -27,7 +27,7 @@
     "semantic-ui-react": "^0.88.2",
     "sqlite3": "^5.0.0"
   },
-  "homepage": "https://github.com/poojagunturu/dig-deep",
+  "homepage": "https://poojagunturu.github.io/dig-deep",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
