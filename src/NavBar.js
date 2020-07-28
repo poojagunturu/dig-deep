@@ -48,7 +48,7 @@ function NavBar() {
       <Menu inverted text size="large">
         <Menu.Item icon>
           <img
-            src={"/" + process.env.PUBLIC_URL + "./img/logo.png"}
+            src={"./img/logo.png"}
             style={{ paddingRight: 10, width: "3em" }}
             alt="Dig Deep logo"
           />

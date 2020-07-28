@@ -44,7 +44,7 @@ function HomePage() {
       <NavBar />
       <div id="home-page-showcase">
         <img
-          src={process.env.PUBLIC_URL + "./img/bull.png"}
+          src={"./img/bull.png"}
           className="bull"
           data-aos="fade-right"
           data-aos-offset="200"
@@ -54,7 +54,7 @@ function HomePage() {
           alt="Pixelated Bull"
         />
         <img
-          src={process.env.PUBLIC_URL + "./img/bear.png"}
+          src={"./img/bear.png"}
           className="bear"
           data-aos="fade-left"
           data-aos-offset="200"
@@ -73,7 +73,7 @@ function HomePage() {
         data-aos-easing="ease-in-out"
       >
         <div className="showcase-branding">
-          <img src={process.env.PUBLIC_URL + "./img/logo.png"} alt="Dig Deep Logo"/>
+          <img src={"./img/logo.png"} alt="Dig Deep Logo"/>
           <h3>DIG DEEP</h3>
         </div>
         <Search
