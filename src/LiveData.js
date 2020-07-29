@@ -265,7 +265,7 @@ function LiveData (props) {
 
     const fetchDailyData= async (sample) => {
       axios
-      .get('http://localhost:4000/stock-data/all', {
+      .get('https://digdeepapi.herokuapp.com/stock-data/all', {
         params: {
           n: sample
         }})

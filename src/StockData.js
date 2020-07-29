@@ -31,11 +31,11 @@ function StockData() {
     const fetchLiveData = async (id) => {
       // Send GET request to endpoint
       axios.all([
-        axios.get('http://localhost:4000/stock-data/retrieve-candle', {
+        axios.get('https://digdeepapi.herokuapp.com/stock-data/retrieve-candle', {
           params: {
             id: id 
           }}),
-        axios.get('http://localhost:4000/stock-data/retrieve-volume', {
+        axios.get('https://digdeepapi.herokuapp.com/stock-data/retrieve-volume', {
           params: {
             id: id 
           }})
