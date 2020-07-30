@@ -27,6 +27,66 @@ body {
   width: 100%;
 }
 
+#navbar #nav-sidebar {
+  display: none;
+}
+
+.sidenav {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  #navbar .right.menu a:not(:last-child), #navbar .right.menu div {
+    display: none;
+  }
+
+  #navbar #nav-sidebar {
+    display: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidenav {
+  height: 100%;
+  width: 0;
+  display: unset;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px !important;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav #closebtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+}
+
 /********** Home Page Body **********/
 #home-page-showcase {
   height: 93vh;
@@ -40,6 +100,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: baseline;
+  overflow: hidden;
 }
 
 .bull {
@@ -88,9 +149,9 @@ body {
   margin: 0; 
 }
 
-.showcase-focus .ui.huge.fluid.search {
+/* .showcase-focus .ui.huge.fluid.search {
   width: 35%;
-}
+} */
 
 .showcase-focus .ui.left.icon.input {
   width: 100%;
@@ -124,7 +185,13 @@ body {
 #stock-data-header {
   padding-left: 20px;
   /* padding-bottom: 10px; */
-  width: 45%;
+  width: 100%;
+}
+
+#stock-data-header .is-loading {
+  padding-bottom: 10px;
+  text-align: center;
+  margin: 0;
 }
 
 .hide {
@@ -297,3 +364,108 @@ span {
   padding: 0 !important;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  /********** Showcase **********/
+    .bull {
+      width: 72%;
+      height: 70%;
+      margin-top:20%;
+    }
+    
+    .bear {
+      width: 75%;
+      height: 48%;
+    }
+    
+    .showcase-focus{
+      padding-top: 20%;
+    }
+  
+    .showcase-branding h3 {
+      font-size: 4vw;
+      letter-spacing: 0.2em;
+      margin: 0; 
+    }
+    
+    .showcase-focus p {
+      font-size: 2.2vw;
+      letter-spacing: 0.1em;
+      padding: 2%;
+      width: 35%;
+      text-align: center;
+      line-height: 4vh;
+      color: rgb(161, 161, 161);
+    }
+  
+    /********** Stock Data Body **********/
+
+    .showcase-branding img {
+      width: 6vw;
+    }
+
+    .all-stock-data {
+      overflow-x: hidden;
+    }
+
+    #stock-data-header {
+      padding-bottom: 10px;
+      display:flex;
+      width: 100%;
+    }
+
+    #stock-data-header .is-loading {
+      margin: 30px 30px;
+    }
+
+    #stock-data {
+      flex-direction: column;
+      justify-content: unset;
+    }
+    
+    #sampled-data {
+      width: 100%;
+    }
+    
+    #sampled-data button {
+      font-size: 2.2vw;
+    }
+
+    #histogram-charts {
+      width: 100%;
+    }
+
+    #under-const {
+      width: 100%;
+      padding: 45%;
+    }
+  
+  }
+
+  @media (max-width: 425px) {
+    .bull {
+      width: 82%;
+      height: 65%;
+      left: -6%;
+      margin-top:20%;
+    }
+    
+    .bear {
+      width: 85%;
+      height: 48%;
+      right: -10%;
+    }
+
+    .showcase-branding img {
+      width: 10vw;
+    }
+
+    .showcase-focus p {
+      font-size: 3vw;
+      width: 50%;
+    }
+
+    #sampled-data button {
+      font-size: 3vw;
+    }
+  }

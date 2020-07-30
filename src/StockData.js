@@ -14,6 +14,7 @@ function StockData() {
       });
     // const [buttonValue, setButtonValue] = useState('LIVE DATA');
     const [activeItem, setActiveItem] = useState('LIVE DATA'); 
+    const [isLoading, setIsLoading] = useState ('true');
 
     const row = useRef(-1);
    
@@ -41,6 +42,7 @@ function StockData() {
           }})
       ])
         .then(axios.spread((candle, volume) => {
+          setIsLoading(false);
           var newCandleData = candle.data[0];
           var newVolumeData = volume.data[0];
           delete newCandleData.id;
@@ -197,8 +199,9 @@ function StockData() {
                 </h3>
               </h2>
             </div>
+            {isLoading? <h3 className="is-loading">Loading Data ...</h3>: <div></div>}
           </div>
-          <Button.Group widths="5">
+          <Button.Group widths="5" size="tiny">
             <Button
               active={activeItem === "LIVE DATA"}
               name="LIVE DATA"

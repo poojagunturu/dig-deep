@@ -95,12 +95,22 @@ function HistogramChart(props) {
         document.getElementById("histogram-charts").offsetHeight * 0.47 + 80;
     } else {
       // delete figure.layout.sliders;
-      figure.layout.width =
-        document.getElementById("histogram-charts").offsetWidth * 0.5 -
-        parseInt(str.slice(-str.length, -2), 10) * 4;
-      figure.layout.height =
-        document.getElementById("histogram-charts").offsetHeight * 0.5 - 60;
-      figure.layout.margin.b = 50;
+      if (vw <= 767) {
+        figure.layout.width =
+        document.getElementById("histogram-charts").offsetWidth -
+        parseInt(str.slice(-str.length, -2), 10) * 8;
+        figure.layout.height =
+          document.getElementById("histogram-charts").offsetHeight * 0.5 - 60;
+        figure.layout.margin.b = 50;
+      }
+      else{
+        figure.layout.width =
+          document.getElementById("histogram-charts").offsetWidth * 0.5 -
+          parseInt(str.slice(-str.length, -2), 10) * 4;
+        figure.layout.height =
+          document.getElementById("histogram-charts").offsetHeight * 0.5 - 60;
+        figure.layout.margin.b = 50;
+      }
     }
     if (props.legend) {
       // delete figure.layout.legend;

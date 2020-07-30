@@ -71,7 +71,7 @@ function PersistentLiveData(props) {
 
   return (
     <div id="histogram-charts">
-      <Grid>
+      <Grid stackable>
         <Grid.Row>
           <Grid.Column width={8}>{histComponents[0]}</Grid.Column>
           <Grid.Column width={8}>{histComponents[1]}</Grid.Column>
