@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar.js";
-import { Search, Responsive } from "semantic-ui-react";
+import { Search } from "semantic-ui-react";
 import { useHistory } from "react-router";
 import _ from 'lodash';
 import AOS from "aos";
@@ -32,9 +32,7 @@ function HomePage() {
     setTimeout(() => {
       const re = new RegExp(_.escapeRegExp(value), "i");
       const isMatch = (result) => re.test(result.title);
-      console.log(isMatch);
       setIsLoading(false);
-      console.log(_.filter(source, isMatch));
       setResults(_.filter(source, isMatch));
     }, 300);
   };
@@ -76,7 +74,6 @@ function HomePage() {
           <img src={"./img/logo.png"} alt="Dig Deep Logo"/>
           <h3>DIG DEEP</h3>
         </div>
-        <Responsive minWidth={769} style={{width: '35%'}}>
           <Search
             fluid
             input={{ icon: "search", iconPosition: "left" }}
@@ -90,22 +87,6 @@ function HomePage() {
             results={results}
             value={searchValue}
           />
-        </Responsive>
-        <Responsive maxWidth={768} style={{width: '35%'}}>
-          <Search
-            fluid
-            input={{ icon: "search", iconPosition: "left" }}
-            size="large"
-            placeholder="Search Stocks, Ex. Ajanta Pharma"
-            loading={isLoading}
-            onResultSelect={handleResultSelect}
-            onSearchChange={_.debounce(handleSearchChange, 500, {
-              leading: true,
-            })}
-            results={results}
-            value={searchValue}
-          />
-        </Responsive>
         <p>
           Get trading insights from algo traders, data scientists using AI and
           Machine Learning
