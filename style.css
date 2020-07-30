@@ -149,9 +149,9 @@ body {
   margin: 0; 
 }
 
-/* .showcase-focus .ui.huge.fluid.search {
+.showcase-focus .ui.huge.fluid.search {
   width: 35%;
-} */
+}
 
 .showcase-focus .ui.left.icon.input {
   width: 100%;
@@ -404,6 +404,10 @@ span {
       width: 6vw;
     }
 
+    .showcase-focus .ui.huge.fluid.search {
+      width: 50%;
+    }
+
     .all-stock-data {
       overflow-x: hidden;
     }
@@ -458,6 +462,10 @@ span {
 
     .showcase-branding img {
       width: 10vw;
+    }
+
+    .showcase-focus .ui.huge.fluid.search {
+      width: 75%;
     }
 
     .showcase-focus p {
