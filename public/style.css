@@ -101,6 +101,7 @@ body {
   justify-content: center;
   align-items: baseline;
   overflow: hidden;
+  width: 100%;
 }
 
 .bull {
@@ -461,10 +462,11 @@ span {
     .showcase-branding img {
       width: 10vw;
     }
-
-    /* .showcase-focus .res-search{
-      width: 75%;
-    } */
+    
+    .all-stock-data>.ui.tiny.five.buttons .ui.button {
+      padding: 0.5em;
+      font-size: 3vw; 
+    }
 
     .showcase-focus p {
       font-size: 3vw;

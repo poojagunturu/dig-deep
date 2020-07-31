@@ -15,6 +15,7 @@ function StockData() {
     // const [buttonValue, setButtonValue] = useState('LIVE DATA');
     const [activeItem, setActiveItem] = useState('LIVE DATA'); 
     const [isLoading, setIsLoading] = useState ('true');
+    const [mounted, setMounted] = useState(false);
 
     const row = useRef(-1);
    
@@ -73,7 +74,6 @@ function StockData() {
         .catch(error => console.error(`There was an error retrieving the book list: ${error}`))
     }
 
-
     useEffect (() => {
       if(document.getElementById("live-price") !== null){
         var live_price = document.getElementById("live-price");
@@ -82,8 +82,10 @@ function StockData() {
         var textnode = document.createTextNode("AJANTPHARM"); 
         newItem.appendChild(textnode);  
         
-        function myFunction() {
+        const myFunction = () => {
           if (window.pageYOffset > sticky && !document.getElementById("modal-hist-segment")) {
+            console.log(window.pageYOffset);
+            console.log(sticky);
             live_price.firstChild.style.display = 'inline';
             live_price.childNodes[1].style.display = 'inline';
             live_price.childNodes[1].style.marginLeft = '20px';
@@ -98,7 +100,8 @@ function StockData() {
             live_price.classList.remove("sticky");
           }
         }
-        window.onscroll = function() {myFunction()};
+        // window.onscroll = function() {myFunction()};
+        window.onscroll = myFunction;
       }
     }, [])
     
@@ -111,6 +114,11 @@ function StockData() {
       }
     },[intraDayData.candleData, intraDayData.volumeData]);
 
+    
+    useEffect(() => {
+      setMounted(true);
+    }, [])
+    
     return (
       <div>
         <NavBar />
@@ -244,6 +252,7 @@ function StockData() {
                 candleData={intraDayData.candleData}
                 volumeData={intraDayData.volumeData}
                 totalWorthData={intraDayData.totalWorthData}
+                mounted={mounted}
               />
             ) : (
               <UnderConstruction />

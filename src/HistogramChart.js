@@ -40,7 +40,8 @@ function HistogramChart(props) {
   function resetLayout() {
     var str = window
       .getComputedStyle(document.getElementById("every-hist-segment"), null)
-      .getPropertyValue("padding");
+      .getPropertyValue("padding-block-end");
+    // console.log(window.getComputedStyle(document.getElementById("every-hist-segment"), null));
     var vw = document.body.offsetWidth;
     figure.data = chart_data[props.index].data;
     figure.layout.yaxis.title = chart_data[props.index].layout.yaxis.title;
@@ -131,7 +132,7 @@ function HistogramChart(props) {
         .getPropertyValue("width");
       var pad_str = window
         .getComputedStyle(document.getElementById("modal-hist-segment"), null)
-        .getPropertyValue("padding");
+        .getPropertyValue("padding-block-end");
       figure.data = chart_data[props.index].data;
       figure.layout.yaxis.title = chart_data[props.index].layout.yaxis.title;
       figure.layout.xaxis.title = chart_data[props.index].layout.xaxis.title;

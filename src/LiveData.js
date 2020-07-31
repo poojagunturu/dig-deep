@@ -118,7 +118,8 @@ function LiveData (props) {
     };
 
     useEffect(() => {
-        var str = window.getComputedStyle(document.getElementById('sampled-data'), null).getPropertyValue('padding');
+      if(props.mounted){
+        var str = window.getComputedStyle(document.getElementById('sampled-data'), null).getPropertyValue('padding-block-end');
         chart.current = createChart(chartRef.current, {
             width: document.getElementById("sampled-data").offsetWidth-(parseInt(str.slice(-str.length, -2), 10)*2),
             height: (document.getElementById("sampled-data").offsetHeight*0.45),
@@ -165,7 +166,7 @@ function LiveData (props) {
           if (document.getElementById("sampled-data")) {
             var str = window
               .getComputedStyle(document.getElementById("sampled-data"), null)
-              .getPropertyValue("padding");
+              .getPropertyValue("padding-block-end");
             chart.current.resize(
               document.getElementById("sampled-data").offsetWidth -
                 parseInt(str.slice(-str.length, -2), 10) * 2,
@@ -246,22 +247,28 @@ function LiveData (props) {
         toolTip2.current.className = "three-line-legend";
         chartRef2.current.appendChild(toolTip2.current);
         toolTip2.current.style.top = 5 + "px";
-
-    }, []);
-
-    useEffect(() => {
-      setCrosshair();
-    }, [intraValueChange]);
+      }
+    }, [props.mounted]);
 
     useEffect(() => {
-      setCrosshair();
-    }, [otherValueChange]);
+      if(props.mounted){
+        setCrosshair();
+      }
+    }, [intraValueChange, props.mounted]);
 
     useEffect(() => {
-      candleSeries.current.setData([]);
-      volumeSeries.current.setData([]);
-      totalWorthSeries.current.setData([]);
-    }, [intraButtonValue, intraValueChange]);
+      if(props.mounted){
+        setCrosshair();
+      }
+    }, [otherValueChange, props.mounted]);
+
+    useEffect(() => {
+      if(props.mounted){
+        candleSeries.current.setData([]);
+        volumeSeries.current.setData([]);
+        totalWorthSeries.current.setData([]);
+      }
+    }, [intraButtonValue, intraValueChange, props.mounted]);
 
     const fetchDailyData= async (sample) => {
       axios
@@ -305,40 +312,42 @@ function LiveData (props) {
     }
 
     useEffect(() => {
-      var sample;
-      if (otherButtonsValue !== "") {
-        switch (otherButtonsValue) {
-          case "1M":
-            sample = 20;
-            break;
-          case "3M":
-            sample = 62;
-            break;
-          case "6M":
-            sample = 125;
-            break;
-          case "YTD":
-            sample = -1;
-            break;
-          case "1Y":
-            sample = 251;
-            break;
-          case "2Y":
-            sample = 503;
-            break;
-          case "5Y":
-            sample = 1259;
-            break;
-          case "Max":
-            sample = -2;
-            break;
-          default:
-            sample = 20;
-        }
+      if(props.mounted){
+        var sample;
+        if (otherButtonsValue !== "") {
+          switch (otherButtonsValue) {
+            case "1M":
+              sample = 20;
+              break;
+            case "3M":
+              sample = 62;
+              break;
+            case "6M":
+              sample = 125;
+              break;
+            case "YTD":
+              sample = -1;
+              break;
+            case "1Y":
+              sample = 251;
+              break;
+            case "2Y":
+              sample = 503;
+              break;
+            case "5Y":
+              sample = 1259;
+              break;
+            case "Max":
+              sample = -2;
+              break;
+            default:
+              sample = 20;
+          }
 
-        fetchDailyData(sample);
+          fetchDailyData(sample);
+        }
       }
-    }, [otherButtonsValue, otherValueChange]);
+    }, [otherButtonsValue, otherValueChange, props.mounted]);
 
     return (
       // <div>

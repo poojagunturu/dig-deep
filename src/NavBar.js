@@ -8,7 +8,6 @@ function NavBar() {
     const [isLoading, setIsLoading] = useState(false);
     const [results, setResults] = useState([]);
     const [searchValue, setSearchValue] = useState("");
-    const [visible, setVisible] = React.useState(false)
 
     const history = useHistory();
 
