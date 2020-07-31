@@ -118,10 +118,13 @@ function LiveData (props) {
     };
 
     useEffect(() => {
-      if(props.mounted){
         var str = window.getComputedStyle(document.getElementById('sampled-data'), null).getPropertyValue('padding-block-end');
+        var adjust_x = 0;
+        if(document.body.offsetWidth === 768) {
+          adjust_x = 1;
+        } 
         chart.current = createChart(chartRef.current, {
-            width: document.getElementById("sampled-data").offsetWidth-(parseInt(str.slice(-str.length, -2), 10)*2),
+            width: (document.getElementById("sampled-data").offsetWidth-(5.5*adjust_x))-parseInt(str.slice(-str.length, -2), 10)*2,
             height: (document.getElementById("sampled-data").offsetHeight*0.45),
             crosshair: {
                 mode: CrosshairMode.Normal,
@@ -142,7 +145,7 @@ function LiveData (props) {
         });
 
         chart2.current = createChart(chartRef2.current, {
-            width: document.getElementById("sampled-data").offsetWidth-(parseInt(str.slice(-str.length, -2), 10)*2),
+            width: document.getElementById("sampled-data").offsetWidth-parseInt(str.slice(-str.length, -2), 10)*2,
             height: (document.getElementById("sampled-data").offsetHeight*0.12),
             crosshair: {
                 mode: CrosshairMode.Normal,
@@ -188,7 +191,6 @@ function LiveData (props) {
             timeVisible: true,
             secondsVisible: false,
             tickMarkFormatter: (time, tickMarkType, locale) => {
-              console.log(time, tickMarkType, locale);
               const year = isBusinessDay(time)
                 ? time.year
                 : new Date(time * 1000).getUTCFullYear();
@@ -247,28 +249,21 @@ function LiveData (props) {
         toolTip2.current.className = "three-line-legend";
         chartRef2.current.appendChild(toolTip2.current);
         toolTip2.current.style.top = 5 + "px";
-      }
-    }, [props.mounted]);
+    }, []);
 
     useEffect(() => {
-      if(props.mounted){
-        setCrosshair();
-      }
-    }, [intraValueChange, props.mounted]);
+      setCrosshair();
+    }, [intraValueChange]);
 
     useEffect(() => {
-      if(props.mounted){
-        setCrosshair();
-      }
-    }, [otherValueChange, props.mounted]);
+      setCrosshair();
+    }, [otherValueChange]);
 
     useEffect(() => {
-      if(props.mounted){
-        candleSeries.current.setData([]);
-        volumeSeries.current.setData([]);
-        totalWorthSeries.current.setData([]);
-      }
-    }, [intraButtonValue, intraValueChange, props.mounted]);
+      candleSeries.current.setData([]);
+      volumeSeries.current.setData([]);
+      totalWorthSeries.current.setData([]);
+    }, [intraButtonValue, intraValueChange]);
 
     const fetchDailyData= async (sample) => {
       axios
@@ -312,42 +307,40 @@ function LiveData (props) {
     }
 
     useEffect(() => {
-      if(props.mounted){
-        var sample;
-        if (otherButtonsValue !== "") {
-          switch (otherButtonsValue) {
-            case "1M":
-              sample = 20;
-              break;
-            case "3M":
-              sample = 62;
-              break;
-            case "6M":
-              sample = 125;
-              break;
-            case "YTD":
-              sample = -1;
-              break;
-            case "1Y":
-              sample = 251;
-              break;
-            case "2Y":
-              sample = 503;
-              break;
-            case "5Y":
-              sample = 1259;
-              break;
-            case "Max":
-              sample = -2;
-              break;
-            default:
-              sample = 20;
-          }
-
-          fetchDailyData(sample);
+      var sample;
+      if (otherButtonsValue !== "") {
+        switch (otherButtonsValue) {
+          case "1M":
+            sample = 20;
+            break;
+          case "3M":
+            sample = 62;
+            break;
+          case "6M":
+            sample = 125;
+            break;
+          case "YTD":
+            sample = -1;
+            break;
+          case "1Y":
+            sample = 251;
+            break;
+          case "2Y":
+            sample = 503;
+            break;
+          case "5Y":
+            sample = 1259;
+            break;
+          case "Max":
+            sample = -2;
+            break;
+          default:
+            sample = 20;
         }
+
+        fetchDailyData(sample);
       }
-    }, [otherButtonsValue, otherValueChange, props.mounted]);
+    }, [otherButtonsValue, otherValueChange]);
 
     return (
       // <div>

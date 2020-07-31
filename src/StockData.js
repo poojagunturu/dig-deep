@@ -84,8 +84,6 @@ function StockData() {
         
         const myFunction = () => {
           if (window.pageYOffset > sticky && !document.getElementById("modal-hist-segment")) {
-            console.log(window.pageYOffset);
-            console.log(sticky);
             live_price.firstChild.style.display = 'inline';
             live_price.childNodes[1].style.display = 'inline';
             live_price.childNodes[1].style.marginLeft = '20px';
