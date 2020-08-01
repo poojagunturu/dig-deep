@@ -439,6 +439,7 @@ span {
       display:revert;
       flex-direction: unset;
       justify-content: unset;
+      overflow-x: hidden;
     }
     
     #sampled-data {
