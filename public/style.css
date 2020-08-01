@@ -436,7 +436,8 @@ span {
     }
 
     #stock-data {
-      flex-direction: column;
+      display:revert;
+      flex-direction: unset;
       justify-content: unset;
     }
     
