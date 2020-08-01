@@ -42,7 +42,7 @@ function HistogramChart(props) {
       .getComputedStyle(document.getElementById("every-hist-segment"), null)
       .getPropertyValue("padding-block-end");
     // console.log(window.getComputedStyle(document.getElementById("every-hist-segment"), null));
-    var vw = document.body.clientWidth;
+    var vw = document.body.offsetWidth;
     figure.data = chart_data[props.index].data;
     figure.layout.yaxis.title = chart_data[props.index].layout.yaxis.title;
     figure.layout.xaxis.title = chart_data[props.index].layout.xaxis.title;
@@ -90,26 +90,26 @@ function HistogramChart(props) {
         },
       ];
       figure.layout.width =
-        document.getElementById("histogram-charts").clientWidth * 0.5 -
+        document.getElementById("histogram-charts").offsetWidth * 0.5 -
         parseInt(str.slice(-str.length, -2), 10) * 4;
       figure.layout.height =
-        document.getElementById("histogram-charts").clientHeight * 0.47 + 80;
+        document.getElementById("histogram-charts").offsetHeight * 0.47 + 80;
     } else {
       // delete figure.layout.sliders;
       if (vw <= 767) {
         figure.layout.width =
-        document.getElementById("histogram-charts").clientWidth -
+        document.getElementById("histogram-charts").offsetWidth -
         parseInt(str.slice(-str.length, -2), 10) * 8;
         figure.layout.height =
-          document.getElementById("histogram-charts").clientHeight * 0.5 - 60;
+          document.getElementById("histogram-charts").offsetHeight * 0.5 - 60;
         figure.layout.margin.b = 50;
       }
       else{
         figure.layout.width =
-          document.getElementById("histogram-charts").clientWidth * 0.5 -
+          document.getElementById("histogram-charts").offsetWidth * 0.5 -
           parseInt(str.slice(-str.length, -2), 10) * 4;
         figure.layout.height =
-          document.getElementById("histogram-charts").clientHeight * 0.5 - 60;
+          document.getElementById("histogram-charts").offsetHeight * 0.5 - 60;
         figure.layout.margin.b = 50;
       }
     }
@@ -138,7 +138,7 @@ function HistogramChart(props) {
       figure.layout.xaxis.title = chart_data[props.index].layout.xaxis.title;
 
       figure.layout.width = parseInt(str.slice(-str.length, -2), 10) - (parseInt(pad_str.slice(-str.length, -2), 10)*2);
-      figure.layout.height = document.body.clientHeight * 0.8;
+      figure.layout.height = document.body.offsetHeight * 0.8;
 
       figure.layout.showlegend = true;
       figure.layout.margin = {autoexpand: true};
@@ -384,8 +384,8 @@ function HistogramChart(props) {
   var figure = {
     data: [],
     layout: {
-      width: document.body.clientWidth * 0.1,
-      height: document.body.clientHeight * 0.5,
+      width: document.body.offsetWidth * 0.1,
+      height: document.body.offsetHeight * 0.5,
       // margin: {
       //   autoexpand: true
       // },
