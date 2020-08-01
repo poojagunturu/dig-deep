@@ -111,11 +111,6 @@ function StockData() {
         return () => clearInterval(interval);
       }
     },[intraDayData.candleData, intraDayData.volumeData]);
-
-    
-    useEffect(() => {
-      setMounted(true);
-    }, [])
     
     return (
       <div>

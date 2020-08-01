@@ -184,7 +184,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   margin-top: 20px;
-  height: 55rem;
+  height: 58rem;
 }
 
 #stock-data-header {
@@ -368,6 +368,18 @@ span {
 .every-hist {
   padding: 0 !important;
   text-align: center;
+}
+
+@media (min-width: 2200px) {
+  #stock-data {
+    height: 80rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  #stock-data {
+    height: 50rem;
+  }
 }
 
 @media (max-width: 768px) {

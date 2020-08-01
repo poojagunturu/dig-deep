@@ -120,12 +120,12 @@ function LiveData (props) {
     useEffect(() => {
         var str = window.getComputedStyle(document.getElementById('sampled-data'), null).getPropertyValue('padding-block-end');
         var adjust_x = 0;
-        if(document.body.offsetWidth === 768) {
+        if(document.body.clientWidth === 768) {
           adjust_x = 1;
         } 
         chart.current = createChart(chartRef.current, {
-            width: (document.getElementById("sampled-data").offsetWidth-(5.5*adjust_x))-parseInt(str.slice(-str.length, -2), 10)*2,
-            height: (document.getElementById("sampled-data").offsetHeight*0.45),
+            width: (document.getElementById("sampled-data").clientWidth-(5.5*adjust_x))-parseInt(str.slice(-str.length, -2), 10)*2,
+            height: (document.getElementById("sampled-data").clientHeight*0.45),
             crosshair: {
                 mode: CrosshairMode.Normal,
             },
@@ -145,8 +145,8 @@ function LiveData (props) {
         });
 
         chart2.current = createChart(chartRef2.current, {
-            width: document.getElementById("sampled-data").offsetWidth-parseInt(str.slice(-str.length, -2), 10)*2,
-            height: (document.getElementById("sampled-data").offsetHeight*0.12),
+            width: document.getElementById("sampled-data").clientWidth-parseInt(str.slice(-str.length, -2), 10)*2,
+            height: (document.getElementById("sampled-data").clientHeight*0.12),
             crosshair: {
                 mode: CrosshairMode.Normal,
             },
@@ -171,14 +171,14 @@ function LiveData (props) {
               .getComputedStyle(document.getElementById("sampled-data"), null)
               .getPropertyValue("padding-block-end");
             chart.current.resize(
-              document.getElementById("sampled-data").offsetWidth -
+              document.getElementById("sampled-data").clientWidth -
                 parseInt(str.slice(-str.length, -2), 10) * 2,
-              document.getElementById("sampled-data").offsetHeight * 0.45
+              document.getElementById("sampled-data").clientHeight * 0.45
             );
             chart2.current.resize(
-              document.getElementById("sampled-data").offsetWidth -
+              document.getElementById("sampled-data").clientWidth -
                 parseInt(str.slice(-str.length, -2), 10) * 2,
-              document.getElementById("sampled-data").offsetHeight * 0.12
+              document.getElementById("sampled-data").clientHeight * 0.12
             );
           }
         };
