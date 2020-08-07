@@ -7,15 +7,16 @@ This is a React Based Application for a fintech idea. At the moment, only the li
 ## Installation
 
 Clone the repository
-
-`https://github.com/poojagunturu/dig-deep.git`
-
+```
+https://github.com/poojagunturu/dig-deep.git
+```
 To install all the dependencies
-
-`npm install`
-
-### Start the Application
+```
+npm install
+```
+## Start the Application
 
 Go to the root directory and execute the following command: 
-
-`npm start`
+```
+npm start
+```
