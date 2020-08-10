@@ -84,7 +84,7 @@ function StockData() {
         newItem.appendChild(textnode);  
         
         const myFunction = () => {
-          if (window.pageYOffset > (sticky+(height*2)) && !document.getElementById("modal-hist-segment")) {
+          if (window.pageYOffset > sticky && !document.getElementById("modal-hist-segment")) {
             live_price.firstChild.style.display = 'inline';
             live_price.childNodes[1].style.display = 'inline';
             live_price.childNodes[1].style.marginLeft = '20px';
