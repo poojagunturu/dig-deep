@@ -184,7 +184,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   margin-top: 20px;
-  height: 58rem;
+  height: 100vh;
 }
 
 #stock-data-header {
@@ -370,7 +370,7 @@ span {
   text-align: center;
 }
 
-@media (min-width: 2200px) {
+/* @media (min-width: 2200px) {
   #stock-data {
     height: 80rem;
   }
@@ -380,7 +380,7 @@ span {
   #stock-data {
     height: 50rem;
   }
-}
+} */
 
 @media (max-width: 768px) {
   /********** Showcase **********/
