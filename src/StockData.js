@@ -201,7 +201,7 @@ function StockData() {
                 </h3>
               </h2>
             </div>
-            {isLoading? <h3 className="is-loading">Loading Data ...</h3>: <div></div>}
+            {isLoading? <h3 className="is-loading">Loading Data <i className="fa fa-spinner fa-spin"></i></h3>: <div></div>}
           </div>
           <Button.Group widths="5" size="tiny">
             <Button
